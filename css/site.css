@@ -1,0 +1,127 @@
+/* Page depedencies {themes.css} */
+
+
+:root {
+    --ad-dark-color: #212121;
+    --ad-light-color: #ebebeb; 
+}
+
+/* #region Stick Footer */
+html,body {
+    height: 100%;
+
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex-grow: 1;
+
+}
+
+footer {
+    flex-shrink: 0;
+}
+
+/* #endregion Stick Footer */
+
+/* #region Navbar, footer */
+nav, footer {
+    background-color: var(--ad-theme-900);    
+    color: var(--ad-theme-100);
+}
+
+.nav-link {
+    color: var(--ad-theme-100);
+}
+
+/* originally --ad-theme-100 */
+.nav-link.active {
+    color: var(--ad-theme-500) !important;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    color: var(--ad-theme-300);
+}
+
+.nav-link.active:hover {
+    color: var(--ad-theme-300) !important;
+}
+
+.navbar-brand:hover {
+    color: var(--ad-theme-300);
+}
+
+.navbar-brand {
+    color: var(--ad-theme-100);
+}
+
+footer .bi{
+    color: var(--ad-theme-200);
+    font-size: 1.5rem;
+    padding-left: 0.5rem;
+    transition: color 0.25s;
+}
+
+footer .bi:hover{
+    color: var(--ad-theme-core);    
+}
+
+
+
+
+
+/* #endregion Navbar, footer */
+
+
+
+
+
+/* #region */
+
+.btn-outline-primary {
+    --bs-btn-color: var(--ad-theme-600);
+    --bs-btn-border-color: var(--ad-theme-600);
+    --bs-btn-hover-bg: var(--ad-theme-700);
+    --bs-btn-hover-border-color: var(--ad-theme-700);
+    --bs-btn-active-bg: var(--ad-theme-800);
+    --bs-btn-active-border-color: var(--ad-theme-800);
+}
+
+.btn-primary {
+    --bs-btn-color: var(--ad-theme-100);
+    --bs-btn-bg: var(--ad-theme-600);
+    --bs-btn-border-color: var(--ad-theme-600);
+    --bs-btn-hover-bg: var(--ad-theme-700);
+    --bs-btn-hover-border-color: var(--ad-theme-700);
+    --bs-btn-active-bg: var(--ad-theme-800);
+    --bs-btn-active-border-color: var(--ad-theme-800);
+}
+
+.app-logo {
+    max-width: 450px;
+}
+
+.checklist {
+    list-style-type: none;
+}
+
+.checklist .bi {
+    color: var(--ad-theme-core);
+}
+
+.devicons {
+    font-size: 3.5rem;
+}
+
+.btn-primary {
+    background-color: var(--ad-theme-600);
+}
+/* #endregion */
+
+
+
