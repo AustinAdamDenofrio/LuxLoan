@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>APP Name: A coding challenge</title>
+    <title>LoanShark: A coding challenge</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -26,40 +26,177 @@
 
 <body class="" data-ad-theme="orange">
     <header>
-           <nav class="navbar navbar-expand-lg navbar-dark">
-               <div class="container-xxl">
-                   <a class="navbar-brand" href="#"> <img src="/img/mark_dark.svg" alt="Logo" height="30" class="me-3" />App name</a>
-                   <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                       data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false"
-                       aria-label="Toggle navigation">
-                       <span class="navbar-toggler-icon"></span>
-                   </button>
-                   <div class="collapse navbar-collapse" id="navbarContent">
-                       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                           <li class="nav-item">
-                               <a class="nav-link" aria-current="page" href="/index.html">Home</a>
-                           </li>
-                           <li class="nav-item">
-                               <a class="nav-link active" href="/app.html">The App</a>
-                           </li>
-                           <li class="nav-item">
-                               <a class="nav-link" href="/code.html">The Code</a>
-                           </li>
-                           <li class="nav-item">
-                               <a class="nav-link" href="#">The Repo</a>
-                           </li>
-                       </ul>
-                   </div>
-               </div>
-           </nav>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-xxl">
+                <a class="navbar-brand" href="#"> <img src="/img/mark_dark.svg" alt="Logo" height="30"
+                        class="me-3" />LoanShark</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                    aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/app.html">The App</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/code.html">The Code</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">The Repo</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </header>
 
 
     <main class="container-xxl py-3 mt-3">
-        <h1>APP UI goes here</h1>
-        <label>Secret Message</label>
-        <input id="message" type="text" value="Hello, World!" placeholder="Enter a Message" />
-        <button id="btnSubmit" class="btn btn-primary">Display Message</button>
+            <div class="row g-3">
+                <div class="col-4 border border-dark">
+                    <form class="">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <label for="buzzNumber" class="form-label">Loan Amount</label>
+                                            </div>
+                                            <div class="col-6">
+                                                <input 
+                                                    id="loanAmountInput" 
+                                                    class="form-control" 
+                                                    name="loanAmountInput" 
+                                                    placeholder="25,000"
+                                                    aria-label="Loan Amount" 
+                                                    type="number" 
+                                                    required 
+                                                    value="" 
+                                                    max="1000000" 
+                                                    min="1" />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <label for="buzzNumber" class="form-label">Term (Months)</label>
+                                            </div>
+                                            <div class="col-6">
+                                                <input 
+                                                    id="termAmountInput" 
+                                                    class="form-control" 
+                                                    name="termAmountInput" 
+                                                    placeholder="60"
+                                                    aria-label="Term in Months" 
+                                                    type="number" 
+                                                    required 
+                                                    value="" 
+                                                    max="500" 
+                                                    min="1" />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <label for="buzzNumber" class="form-label">Interest Rate</label>
+                                            </div>
+                                            <div class="col-6">
+                                                <input 
+                                                    id="interestRateInput" 
+                                                    class="form-control" 
+                                                    name="interestRateInput" 
+                                                    placeholder="3%"
+                                                    aria-label="Interest Rate" 
+                                                    type="number" 
+                                                    required 
+                                                    value="" 
+                                                    max="100" 
+                                                    min="0" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col"></div>
+                                </div>
+        
+                            </div>
+        
+                            <div class="col-12 text-end">
+                                <button class="btn btn-primary" id="btnSubmit" type="button">
+                                    Submit
+                                </button>
+                            </div>        
+                        </div>
+                    </form>
+                </div>
+                <div class="col-8 border border-dark">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <h1 >Your Monthly Payments</h1>
+                        </div>
+                        <div class="col-12 text-center">
+                            <h1>$471.78</h1>
+                        </div>
+                        <div class="col-12 text-center">
+                            <div class="row">
+                                <div class="col-6 text-start">Total Principal</div>
+                                <div class="col-6 text-end">123</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 text-start">Total Interest</div>
+                                <div class="col-6 text-end">234</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 text-start">Total Cost</div>
+                                <div class="col-6 text-end">345</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 border border-dark table-responsive ">
+                    <table class="table table-striped mb-0">
+                        <thead class="table-secondary">
+                            <tr>
+                                <th scope="col">Month</th>
+                                <th scope="col">Payment</th>
+                                <th scope="col">Principal</th>
+                                <th scope="col">Interest</th>
+                                <th scope="col">Total Interest</th>
+                                <th scope="col">Balance</th>
+                            </tr>
+                        </thead>
+                        <tbody class="">
+                            <tr>
+                                <td>adfs</td>
+                                <td>adfs</td>
+                                <td>adfs</td>
+                                <td>adfs</td>
+                                <td>adfs</td>
+                                <td>adfs</td>
+                            </tr>
+                            <tr>
+                                <td>adfs</td>
+                                <td>adfs</td>
+                                <td>adfs</td>
+                                <td>adfs</td>
+                                <td>adfs</td>
+                                <td>adfs</td>
+                            </tr>
+                            <tr>
+                                <td>adfs</td>
+                                <td>adfs</td>
+                                <td>adfs</td>
+                                <td>adfs</td>
+                                <td>adfs</td>
+                                <td>adfs</td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
     </main>
 
 
@@ -73,11 +210,15 @@
                     <img src="/img/signature_dark.svg" height="30" alt="Logo" />
                 </div>
                 <div class="col text-center text-lg-end">
-                    <a class="text-decoration-none" target="_blank" href="https://www.linkedin.com/in/austin-denofrio-286792223/" ><i class="bi bi-linkedin"></i></a>
-                    <a class="text-decoration-none" target="_blank" href="https://github.com/AustinAdamDenofrio" ><i class="bi bi-github"></i></a>
-                    <a class="text-decoration-none" target="_blank" href="https://twitter.com/A_Denofrio" ><i class="bi bi-twitter-x"></i></a>
-                    <a class="text-decoration-none" target="_blank" href="mailto:denofrioaustindev@gmail.com" ><i class="bi bi-envelope-at-fill"></i></a>
-                    
+                    <a class="text-decoration-none" target="_blank"
+                        href="https://www.linkedin.com/in/austin-denofrio-286792223/"><i class="bi bi-linkedin"></i></a>
+                    <a class="text-decoration-none" target="_blank" href="https://github.com/AustinAdamDenofrio"><i
+                            class="bi bi-github"></i></a>
+                    <a class="text-decoration-none" target="_blank" href="https://twitter.com/A_Denofrio"><i
+                            class="bi bi-twitter-x"></i></a>
+                    <a class="text-decoration-none" target="_blank" href="mailto:denofrioaustindev@gmail.com"><i
+                            class="bi bi-envelope-at-fill"></i></a>
+
                 </div>
 
             </div>
@@ -95,7 +236,7 @@
 
 
     <!-- custom JS site.js -->
-    <script src="/js/site.js" ></script>
+    <script src="/js/site.js"></script>
 
 
 

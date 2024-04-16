@@ -5,7 +5,7 @@
 //     let message = inputBox.value;
 
 //     Swal.fire({
-//         title: "*APP Name*",
+//         title: "*LoanShark*",
 //         text: message,
 //         icon: "success",
 //         backdrop: false
