@@ -56,16 +56,16 @@
 
 
     <main class="container-xxl py-3 mt-3">
-            <div class="row g-3">
+            <div class="row gx-1 gy-2">
                 <div class="col-4 border border-dark">
-                    <form class="">
+                    <form class="h-100 p-3">
                         <div class="row">
                             <div class="col-12">
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="row">
                                             <div class="col-6">
-                                                <label for="buzzNumber" class="form-label">Loan Amount</label>
+                                                <label for="loanAmountInput" class="form-label">Loan Amount</label>
                                             </div>
                                             <div class="col-6">
                                                 <input 
@@ -83,7 +83,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-6">
-                                                <label for="buzzNumber" class="form-label">Term (Months)</label>
+                                                <label for="termAmountInput" class="form-label">Term (Months)</label>
                                             </div>
                                             <div class="col-6">
                                                 <input 
@@ -101,7 +101,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-6">
-                                                <label for="buzzNumber" class="form-label">Interest Rate</label>
+                                                <label for="interestRateInput" class="form-label">Interest Rate</label>
                                             </div>
                                             <div class="col-6">
                                                 <input 
@@ -123,9 +123,13 @@
         
                             </div>
         
-                            <div class="col-12 text-end">
-                                <button class="btn btn-primary" id="btnSubmit" type="button">
-                                    Submit
+                            <div class="col-12 text-end d-flex justify-content-end align-items-end">
+                                <button 
+                                    id="btnSubmit" 
+                                    onclick="getValues()"
+                                    class="btn btn-primary" 
+                                    type="button">
+                                        Submit
                                 </button>
                             </div>        
                         </div>
@@ -155,8 +159,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 border border-dark table-responsive ">
-                    <table class="table table-striped mb-0">
+                <div class="col-12 table-responsive border border-dark">
+                    <table class="table table-striped">
                         <thead class="table-secondary">
                             <tr>
                                 <th scope="col">Month</th>
@@ -193,10 +197,11 @@
                                 <td>adfs</td>
                             </tr>
                         </tbody>
-
+    
                     </table>
                 </div>
             </div>
+
     </main>
 
 
@@ -240,10 +245,10 @@
 
 
 
-    <script>
+    <!-- <script>
         let button = document.getElementById('btnSubmit');
         button.addEventListener('click', displayMessage);
-    </script>
+    </script> -->
 </body>
 
 </html>
