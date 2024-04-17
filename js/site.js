@@ -2,15 +2,27 @@
 
 // Get the values from the HTML inputs and store them in a var.
 function getValues() {
-    // store the values
-    let loanAmountInput = document.getElementById('loanAmountInput').value;
-    let termAmountInput = document.getElementById('termAmountInput').value;    
-    let interestRateInput = document.getElementById('interestRateInput').value;   
+
+
+    // Normalize and store normalized string
+    let loanAmountInputRaw = document.getElementById('loanAmountInput').value;
+    let loanAmountInput = loanAmountInputRaw.replace(/[^0-9eE\.]/gi, '');
+
+    let termAmountInputRaw = document.getElementById('termAmountInput').value;   
+    let termAmountInput = termAmountInputRaw.replace(/[^0-9eE\.]/gi, '');     
+
+    let interestRateInputRaw = document.getElementById('interestRateInput').value;   
+    let interestRateInput = interestRateInputRaw.replace(/[^0-9eE\.]/gi, '');   
+    
+    
   
     // change them from a string to a Num
-        // Selector needs to be used to remove special chars and spaces
     loanAmount = Number(loanAmountInput);
-    termAmount = Number(termAmountInput);
+    termAmount = Math.ceil(Number(termAmountInput));
+    // Rounding the term months to smallest greater int
+    // user needs to see value rounded on input
+    
+
     interestRate = Number(interestRateInput);
   
     
@@ -24,43 +36,34 @@ function getValues() {
             text: `Please enter numbers only for Loan Amount Term Length to work properly.`
           });
       
-          // Loan Amount number isnt between 0-1000
-        } else if (loanAmountInput < 0 || loanAmountInput > 1000) {
+          // Loan Amount number isnt between 0-500,000
+        } else if (loanAmountInput < 0 || loanAmountInput > 500000) {
           swal.fire({
             icon:'error',
             title: 'Oops!',
             backdrop: false,
-            text: `Please ensure Loan Amount is between 0-1000 for Loan Amount Term Length to work properly.`
+            text: `Loan Amount needs to between $0-500,000.`
           });
       
-          // Term Length isnt between 0-1000
-        } else if (termAmountInput < 0 || termAmountInput > 1000) {
+          // Term Length isnt between 0-360
+        } else if (termAmountInput < 0 || termAmountInput > 360) {
           swal.fire({
             icon:'error',
             title: 'Oops!',
             backdrop: false,
-            text: `Please ensure Term Length is between 0-1000 for Loan Amount Term Length to work properly.`
+            text: `Term length must be between 1-360 months(30yrs).`
           });
       
-            // End Number isnt between 0-1000
-        } else if (interestRateInput < 0 || interestRateInput > 1000) {
+            // End Number isnt between 1-50%
+        } else if (interestRateInput < 0 || interestRateInput > 50) {
           swal.fire({
             icon:'error',
             title: 'Oops!',
             backdrop: false,
-            text: `Please ensure End Number is between 0-1000 for Loan Amount Term Length to work properly.`
+            text: `We don't offer loans above 50%`
           });
       
           // End number is greater than both Loan Amount and Term Length Numbers
-        } else if (interestRateInput < loanAmountInput || interestRateInput < termAmountInput) {
-          swal.fire({
-            icon:'error',
-            title: 'Oops!',
-            backdrop: false,
-            text: `Please ensure End Number is greater than the value of Loan Amount and Term Length number for Loan Amount Term Length to work properly.`
-          });
-      
-          // if Loan Amount is greater than Term Length, but is still valid numebers
         } else {
             
             // Total Monthly Payments
