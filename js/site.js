@@ -4,7 +4,7 @@
 function getValues() {
 
 
-    // Normalize and store normalized string
+    // Target the input values and remove characters that will not be considered.
     let loanAmountInputRaw = document.getElementById('loanAmountInput').value;
     let loanAmountInput = loanAmountInputRaw.replace(/[^0-9eE\.]/gi, '');
 
@@ -12,28 +12,25 @@ function getValues() {
     let termAmountInput = termAmountInputRaw.replace(/[^0-9eE\.]/gi, '');     
 
     let interestRateInputRaw = document.getElementById('interestRateInput').value;   
-    let interestRateInput = interestRateInputRaw.replace(/[^0-9eE\.]/gi, '');   
-    
-    
+    let interestRateInput = interestRateInputRaw.replace(/[^0-9eE\.]/gi, '');    
   
-    // change them from a string to a Num
+    // change change datatype from str to num.
     loanAmount = Number(loanAmountInput);
+      //termAmount also needs to be rounded up. Months must be represented by whole numbers
     termAmount = Math.ceil(Number(termAmountInput));
-    // Rounding the term months to smallest greater int
-    // user needs to see value rounded on input
+    interestRate = Number(interestRateInput);
     
 
-    interestRate = Number(interestRateInput);
   
     
-    // validate the num is within the defined values else error
+    // Define valid and invalid inputs and handle mistypes by displaying error to end user
     if (isNaN(loanAmountInput) || isNaN(termAmountInput) || isNaN(interestRateInput)) {
         // validate if its a NaN than error for inputting a number
           swal.fire({
             icon:'error',
             title: 'Oops!',
             backdrop: false,
-            text: `Please enter numbers only for Loan Amount Term Length to work properly.`
+            text: `Please enter only numbers`
           });
       
           // Loan Amount number isnt between 0-500,000
@@ -75,18 +72,6 @@ function getValues() {
             // Write the values to html so the user can see
             displayLoanInformation(statements);
         }
-
-
-
-
-
-
-
-
-
-
-    
-    
 } 
 
 // Calculate the fixed monthly payment.
