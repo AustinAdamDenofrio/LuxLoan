@@ -16,6 +16,8 @@ function getValues() {
     loanAmount = Number(loanAmountInput);
       //termAmount also needs to be rounded up. Months must be represented by whole numbers
     termAmount = Math.ceil(Number(termAmountInput));
+      // display rounded number to the input
+                              // termAmount.setAttribute('value', 'termAmountInputRaw');
     interestRate = Number(interestRateInput);
     
     // Define valid and invalid inputs and handle mistypes by displaying error to end user
@@ -149,6 +151,11 @@ function displayLoanInformation(statements){
       let totalInterest = statement.total_interest.toFixed(2);
       let balance = statement.balance.toFixed(2); 
       let totalPrincipal = statement.total_principal.toFixed(2);
+
+      // Remove negative of the final balance when it reaches $0
+      if (balance <= 0){
+        balance = 0.00;
+      }
       
       // 
       tableHtml += `<tr><td>${month}</td><td>$${payment}</td><td>$${principal}</td><td>$${interest}</td><td>$${totalInterest}</td><td>$${balance}</td></tr>`;
