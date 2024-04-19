@@ -55,8 +55,8 @@
     </header>
 
 
-    <main class="container-xxl py-3 mt-3">
-            <div class="row gx-1 gy-2">
+    <main class="container-xxl py-3 px-4 px-sm-5 pt-5 bg-light">
+            <div class="row gy-3">
                 <div class="col-12 col-sm-4 border border-dark">
                     <form class="h-100 p-3">
                         <div class="row">
@@ -129,13 +129,13 @@
                                     onclick="getValues()"
                                     class="btn btn-primary" 
                                     type="button">
-                                        Submit
+                                        Calculate
                                 </button>
                             </div>        
                         </div>
                     </form>
                 </div>
-                <div class="col-12 col-sm-8 border border-dark">
+                <div class="col-12 col-sm-7 offset-sm-1 border border-dark bg-secondary-subtle">
                     <div class="row">
                         <div class="col-12 text-center">
                             <h1 >Your Monthly Payments</h1>
@@ -145,22 +145,22 @@
                         </div>
                         <div class="col-12 text-center">
                             <div class="row">
-                                <div class="col-6 text-start">Total Principal</div>
-                                <div id="principal-total" class="col-6 text-end"></div>
+                                <div class="col-6 text-start fs-4">Total Principal</div>
+                                <div id="principal-total" class="col-6 text-end fs-4"></div>
                             </div>
                             <div class="row">
-                                <div class="col-6 text-start">Total Interest</div>
-                                <div id="interest-total" class="col-6 text-end"></div>
+                                <div class="col-6 text-start fs-4">Total Interest</div>
+                                <div id="interest-total" class="col-6 text-end fs-4"></div>
                             </div>
                             <div class="row">
-                                <div class="col-6 text-start">Total Cost</div>
-                                <div id="cost-total" class="col-6 text-end"></div>
+                                <div class="col-6 text-start fs-4">Total Cost</div>
+                                <div id="cost-total" class="col-6 text-end fs-4"></div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-12 table-responsive border border-dark">
-                    <table class="table table-striped">
+                <div class="col-12 table-responsive border border-dark px-0 mb-5">
+                    <table class="table table-striped table-bordered mb-0">
                         <thead class="table-secondary">
                             <tr>
                                 <th scope="col">Month</th>

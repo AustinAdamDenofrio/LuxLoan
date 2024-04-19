@@ -123,5 +123,47 @@ footer .bi:hover{
 }
 /* #endregion */
 
+.bg-theme-core{
+    background-color: var(--ad-theme-core);
+}
+.bg-theme-100{
+    background-color: var(--ad-theme-100);
+}
+
+.bg-theme-200{
+    background-color: var(--ad-theme-200);
+}
+
+.bg-theme-300{
+    background-color: var(--ad-theme-300);
+}
+
+.bg-theme-400{
+    background-color: var(--ad-theme-400);
+}
+
+.bg-theme-500{
+    background-color: var(--ad-theme-500);
+}
+
+.bg-theme-600{
+    background-color: var(--ad-theme-600);
+}
+
+.bg-theme-700{
+    background-color: var(--ad-theme-700);
+}
+
+.bg-theme-800{
+    background-color: var(--ad-theme-800);
+}
+
+.bg-theme-850{
+    background-color: var(--ad-theme-850);
+}
+
+.bg-theme-900{
+    background-color: var(--ad-theme-900);
+}
 
 
