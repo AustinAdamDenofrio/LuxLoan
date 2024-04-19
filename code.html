@@ -139,59 +139,59 @@
                                 }
                         } 
 
-                        // Calculate the fixed monthly payment.
+                            // Calculate the fixed monthly payment.
                         function  generateTotalMonthlyPayments(loanAmount, termAmount, interestRate) {
-
-                        // Total Monthly Payment = (loanAmount) * (interestRate / 1200) / ( 1 - (1 + interestRate/1200)^(-termAmount))
-                        let results = loanAmount * (interestRate/1200) / (1 - Math.pow((1 + interestRate / 1200), -termAmount));
-                        
-                        //Return what will be the monthly payment 
-                        return results;
+                            // Total Monthly Payment = (loanAmount) * (interestRate / 1200) / ( 1 - (1 + interestRate/1200)^(-termAmount))
+                            let results = loanAmount * (interestRate/1200) / (1 - Math.pow((1 + interestRate / 1200), -termAmount));
+                            
+                            //Return what will be the monthly payment 
+                            return results;
                         }
 
-                        // Generate an array of objects. The properties of the oject is the cost breakdown of the loan in the 
-                        // table that will eventually be generated.
+                            // Generate an array of objects. The properties of the oject is the cost breakdown of the loan in the 
+                            // table that will eventually be generated.
                         function generateLoanInformation(loanAmount, termAmount, interestRate, totalMonthlyPayment){
                             
-                        // Some of the Initial values to be used to build objects
-                            // Month
-                        let loanLength = termAmount;
-                            // Payment
-                        const payment = totalMonthlyPayment;
-                            // Balance (initializes as = lounAmount and will change as person pays)
-                        let remainingBalance = loanAmount;
-                            // Total interest (Total paid interest)
-                        let totalInterestPayment = 0;    
-                            // Total Principal
-                        let totalPricipal = 0;
-                        
-                            // create and array and use for loop to build an array
-                        let loanTable = [];    
-                        
-
-                            // for loop: Generate array of objects
-                        for (let i = 0; i < loanLength; i++){        
-                                // Interest
-                            let interest = remainingBalance * interestRate/1200;
-                            totalInterestPayment += interest
-                                // Principal    
-                            let principalPayment = payment - interest;
-                            remainingBalance -= principalPayment;
+                            // Some of the Initial values to be used to build objects
+                                // Month
+                            let loanLength = termAmount;
+                                // Payment
+                            const payment = totalMonthlyPayment;
+                                // Balance (initializes as = lounAmount and will change as person pays)
+                            let remainingBalance = loanAmount;
+                                // Total interest (Total paid interest)
+                            let totalInterestPayment = 0;    
                                 // Total Principal
-                            totalPricipal += principalPayment; 
+                            let totalPricipal = 0;
+                            
+                                // create and array and use for loop to build an array
+                            let loanTable = [];    
+                            
 
-                            // Push the object to loanTable array
-                            loanTable.push({
-                                month: i + 1,
-                                payment: payment,
-                                principal: principalPayment,
-                                interest: interest,
-                                total_interest: totalInterestPayment,
-                                balance: remainingBalance,
-                                total_principal: totalPricipal
-                            });
-                            };
-                            // Return Array of Objects
+                                // for loop: Generate array of objects
+                            for (let i = 0; i < loanLength; i++){        
+                                    // Interest
+                                let interest = remainingBalance * interestRate/1200;
+                                totalInterestPayment += interest
+                                    // Principal    
+                                let principalPayment = payment - interest;
+                                remainingBalance -= principalPayment;
+                                    // Total Principal
+                                totalPricipal += principalPayment; 
+
+                                // Push the object to loanTable array
+                                loanTable.push({
+                                    month: i + 1,
+                                    payment: payment,
+                                    principal: principalPayment,
+                                    interest: interest,
+                                    total_interest: totalInterestPayment,
+                                    balance: remainingBalance,
+                                    total_principal: totalPricipal
+                                });
+                                };
+
+                                // Return Array of Objects
                             return loanTable;
                         }
                             
@@ -243,7 +243,7 @@
                                 costTotalElement.textContent = '';
                                 costTotalElement.textContent = `$${cumulativeCost}`;
                             }
-                            }
+                            
                         //Takes str table generated by forloop and sets the html to that new table str. 
                         tbody.innerHTML = tableHtml;
                         }
@@ -251,23 +251,52 @@
                 </pre>
             </div>
             <!-- The Code's Explination -->
-            <div class="col-12 col-lg-4">
+            <div class="col-12 col-lg-4 order-first order-lg-last">
                 <p>The code is structured in 4 functions:</p>
                 <ul>
                     <li><code>getValues()</code></li>
                     Get the values from the HTML inputs and store them in a var.
                     <li><code>generateTotalMonthlyPayments()</code></li>
                     Calculate the fixed monthly payment.
-                    <li><code>generateLoanInformation</code></li>
+                    <li><code>generateLoanInformation()</code></li>
                     Some of the Initial values to be used to build objects
-                    <li><code>displayLoanInformation</code></li>
+                    <li><code>displayLoanInformation()</code></li>
                     use that var to create new html table that has rows = number of objects in the array
                 </ul>
-                <h5 class="lead">Entry Point</h5>
-                <h5><code>getValues()</code></h5>
+
+                <h5 class="lead mt-5">Entry Point</h5>
+                <h5><code>getValues</code></h5>
                 <p>
-                    The <code>getValues</code> function takes the
-                    value from the input and uses the values given through the 
+                    The <code>getValues</code> function has two roles:
+                </p>
+                <ul>
+                    <li>Serves as the entery point that triggers all essential functions to accomplish presenting 
+                        the data to end user.</li>
+                    <li>Format the inputs and run through a series of checks to ensure valid inputs before table generation.</li>
+                </ul>
+
+                <h5 class="lead mt-5">Calculate Monthly Payments</h5>
+                <h5><code>generateTotalMonthlyPayments</code></h5>
+                <p>
+                    One of the values that needs to be generated to eventually become a cornerstone in calculating the laon 
+                    table is the monthly payments. 
+                </p>
+
+                <h5 class="lead mt-5">Generate Loan Information</h5>
+                <h5><code>generateLoanInformation</code></h5>
+                <p>
+                    Here I run all the arithmetic to generate all values that will be used on the table section. These values
+                    are stored as properties in an object. The object eventually will become a row in the table. A FORLOOP is
+                    used to generate and array of objects that will stack in the table to form the length of the loan. This 
+                    array is returned by the function and passes into the last function as an array of objects.
+                </p>
+
+                <h5 class="lead mt-5">Display Loan Information</h5>
+                <h5><code>displayLoanInformation</code></h5>
+                <p>
+                    This Function serves to generate the table in a FORLOOP and generate an HTML structure that can be used to
+                    make changes to the DOM. Also this function will change the values in the Totals section for the end user to
+                    quick referance.
                 </p>
             </div>
 
