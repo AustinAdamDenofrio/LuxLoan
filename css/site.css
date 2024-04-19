@@ -1,6 +1,5 @@
 /* Page depedencies {themes.css} */
 
-
 :root {
     --ad-dark-color: #212121;
     --ad-light-color: #ebebeb; 
@@ -77,10 +76,6 @@ footer .bi:hover{
 
 /* #endregion Navbar, footer */
 
-
-
-
-
 /* #region */
 
 .btn-outline-primary {
@@ -123,6 +118,8 @@ footer .bi:hover{
 }
 /* #endregion */
 
+
+/* #region Color Themes*/
 .bg-theme-core{
     background-color: var(--ad-theme-core);
 }
@@ -165,5 +162,4 @@ footer .bi:hover{
 .bg-theme-900{
     background-color: var(--ad-theme-900);
 }
-
-
+/* #endregion */
